@@ -6,6 +6,10 @@ const Login = () => {
     window.open('http://localhost:5000/auth/google', '_self');
   };
 
+  const twitterLogin = () => {
+    window.open('http://localhost:5000/auth/twitter', '_self');
+  };
+  
 
   return (
     <div className='shadow-2xl w-[900px] p-20 mt-32  mx-auto rounded-lg'>
@@ -13,7 +17,7 @@ const Login = () => {
 
         <div className='flex w-72 flex-col gap-4'>
           <button className='bg-neutral-400 hover:bg-neutral-500 duration-200 text-white p-2 rounded-lg'>GitHub</button>
-          <button className='bg-blue-400 hover:bg-blue-500 duration-200 text-white p-2 rounded-lg'>Facebook</button>
+          <button onClick={twitterLogin} className='bg-blue-400 hover:bg-blue-500 duration-200 text-white p-2 rounded-lg'>Twitter</button>
           <button onClick={googleLogin} className='bg-red-400 hover:bg-red-500 duration-200 text-white p-2 rounded-lg'>Google</button>
         </div>
 

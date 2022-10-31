@@ -2,13 +2,15 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
+const connectDB = require('./configs/mongo.config');
 
 const authRoute = require('./routes/auth.route');
 
-
-const passportSetup = require('./passport');
+require('./configs/passport');
 
 const app = express();
+
+connectDB();
 
 app.use(
   session({
@@ -32,6 +34,8 @@ app.use(cors(
 ));
 
 app.use('/auth', authRoute);
+
+
 
 app.listen(5000, () => {
   console.log('http://localhost:5000/');

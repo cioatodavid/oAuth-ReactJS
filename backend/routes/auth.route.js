@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const dotenv = require('dotenv');
+
 dotenv.config();
+
+
+
 
 router.get("/login/success",
   (req, res) => {
@@ -11,7 +15,7 @@ router.get("/login/success",
         success: true,
         message: "successfull",
         user: req.user,
-        //   cookies: req.cookies
+        cookies: req.cookies
       });
     }
   });
@@ -24,16 +28,20 @@ router.get("/login/failed",
     });
   });
 
-router.get("/logout",
-  (req, res) => {
-    req.logout(function (err) {
-      if (err) { return next(err); }
-      res.redirect(process.env.CLIENT_URL);
-    });
+router.get("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    res.redirect(process.env.CLIENT_URL);
   });
+});
+
+
+
 
 router.get("/google",
-  passport.authenticate("google", { scope: ["profile"] }));
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
+  }));
 
 router.get(
   "/google/callback",
@@ -42,4 +50,19 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
+router.get("/twitter",
+  passport.authenticate("twitter"));
+
+router.get(
+  "/twitter/callback",
+  passport.authenticate("twitter", {
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+
+
+
+
 module.exports = router; 

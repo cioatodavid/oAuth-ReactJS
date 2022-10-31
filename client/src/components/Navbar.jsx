@@ -17,15 +17,16 @@ const Navbar = ({ user }) => {
         <div className="flex flex-row items-center">
 
           <h1 className='text-lg font-semibold'>
-            Bem vindo, {user.displayName}
+            Bem vindo, {user.name}
           </h1>
 
 
           <div className=" ml-4 border-2 p-0.5 border-indigo-500 rounded-full" >
             <img
               className="w-8 h-8 rounded-full  cursor-pointer"
-              src={user.photos[0].value}
+              src={user.avatar}
               alt="profile"
+              referrerPolicy='no-referrer'
             />
           </div>
 
