@@ -1,7 +1,7 @@
 const express = require('express');
-const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
+const session = require('express-session');
 const connectDB = require('./configs/mongo.config');
 
 const authRoute = require('./routes/auth.route');
