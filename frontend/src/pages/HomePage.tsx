@@ -1,19 +1,16 @@
 import { Main } from "../components/Main"
-import { Navbar } from "../components/Navbar"
 import { Sidebar } from "../components/Sidebar"
+import { Profile } from "../components/Profile"
 
 
 
 
 export function HomePage() {
   return (
-    <div className="flex flex-row grow">
+    <div className="flex flex-row grow h-full">
       <Sidebar />
-      <div className="flex grow flex-col">
-        <Navbar />
-        <Main />
-      </div>
-
+      <Main />
+      <Profile />
     </div>
   )
 }

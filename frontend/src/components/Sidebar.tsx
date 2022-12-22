@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Swap, Tooltip, useTheme } from "react-daisyui"
-import { CgSun, CgMoon } from "react-icons/cg"
+import { Swap, Tooltip } from "react-daisyui"
+import { IoSunny, IoMoon, IoSettings, IoBarChart, IoCalendar, IoDocument } from "react-icons/io5"
 
 type SidebarFooterProps = {
   changeTheme: () => void,
@@ -11,7 +11,7 @@ export function Sidebar() {
 
   const [currentTheme, setCurrentTheme] = useState('light')
 
-  
+
 
 
 
@@ -27,7 +27,7 @@ export function Sidebar() {
   }
 
   return (
-    <div className="bg-base-100 rounded-box mb-2 flex flex-col justify-between">
+    <div className="bg-base-300 pb-2 flex flex-col justify-between">
       <SidebarBody />
       <SidebarFooter changeTheme={handleTheme} currentTheme={(currentTheme[0].toUpperCase() + currentTheme.slice(1)).toString()} />
     </div>
@@ -36,14 +36,27 @@ export function Sidebar() {
 
 function SidebarBody() {
   return (
-    <ul className="menu bg-base-100 p-2 items-center grow-0">
+    <ul className="menu text-xl p-2 items-center grow-0 gap-2">
       <li>
-        <div className="tooltip tooltip-right" data-tip="Home">
-          <a>
-            <CgMoon />
-          </a>
-        </div>
+        <Tooltip message='Shift' position="right">
+          <IoCalendar />
+        </Tooltip>
+      </li>
 
+      <li>
+        <Tooltip message='Notes' position="right">
+          <IoDocument />
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip message='Statistics' position="right">
+          <IoBarChart />
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip message='Settings' position="right">
+          <IoSettings />
+        </Tooltip>
       </li>
 
     </ul>
@@ -51,13 +64,11 @@ function SidebarBody() {
 }
 
 
-
 function SidebarFooter({ changeTheme, currentTheme }: SidebarFooterProps) {
   return (
     <Tooltip message={currentTheme} position="right">
-      <Swap className="text-xl p-4" onElement={<CgMoon />} offElement={<CgSun />} rotate
+      <Swap className="text-xl p-4" onElement={<IoMoon />} offElement={<IoSunny />} rotate
         onMouseDown={changeTheme} />
     </Tooltip>
-
   )
 }
