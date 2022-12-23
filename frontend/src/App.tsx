@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom"
 import { HomePage } from "./pages/HomePage"
 
 
+
+
 function App() {
 
 
@@ -11,8 +13,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path='*' element={<h1>404: Not Found</h1>} />
       </Routes>
-
     </div >
+
+    
   )
 }
 

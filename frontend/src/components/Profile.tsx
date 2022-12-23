@@ -14,42 +14,13 @@ type TaskProps = {
 
 export function Profile() {
   return (
-    <div className="bg-base-300 p-10 flex flex-col w-96 items-center">
+    <div className="bg-base-300 p-10 flex flex-col w-96 max-w-sm items-center">
       <ProfileInfo name="David Cioato" avatar="https://avatars.githubusercontent.com/u/55272383?s=200" title="Software Enginner" />
       <div className="flex flex-col gap-2 mt-12 w-full">
-        <h1 className="text-3xl ">Tasks for today</h1>
+        <h1 className="text-3xl ">Notes</h1>
         <Divider />
 
-        <Table className="w-full rounded-box">
-          <Table.Head>
-            <span>Status</span>
-            <span>Task</span>
-          </Table.Head>
-          <Table.Body>
-            <Table.Row>
-              <span>Done</span>
-              <span>Quality Control Specialist</span>
-            </Table.Row>
-          </Table.Body>
-        </Table>
-
-
-        {/*<div className="flex flex-col gap-10 max-h-full overflow-y-auto ">
-          <Task title="Task 1" checked />
-          <Task title="Task 2" />
-          <Task title="Task 3" />
-          <Task title="Task 4" />
-          <Task title="Task 5" />
-          <Task title="Task 5" />
-          <Task title="Task 5" />
-          <Task title="Task 5" />
-          <Task title="Task 5" />
-          <Task title="Task 5" />
-          <Task title="Task 5" />
-          <Task title="Task 50" />
-          <Task title="Task 500" />
-
-        </div>*/}
+        
       </div>
     </div>
   )

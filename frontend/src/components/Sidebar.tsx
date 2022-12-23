@@ -9,19 +9,20 @@ type SidebarFooterProps = {
 
 export function Sidebar() {
 
-  const [currentTheme, setCurrentTheme] = useState('light')
 
-
+  const [currentTheme, setCurrentTheme] = useState("light")
 
 
 
   const handleTheme = () => {
     if (currentTheme === "light") {
-      setCurrentTheme("dark")
-      document.getElementsByTagName("html")[0].setAttribute("data-theme", "dark")
+      setCurrentTheme("dracula")
+      document.getElementsByTagName("html")[0].setAttribute("data-theme", "dracula")
+      localStorage.setItem("theme", "dracula")
     } else {
       setCurrentTheme("light")
       document.getElementsByTagName("html")[0].setAttribute("data-theme", "light")
+      localStorage.setItem("theme", "light")
     }
 
   }
