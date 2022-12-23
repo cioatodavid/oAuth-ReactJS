@@ -1,4 +1,4 @@
-import { Avatar, Divider, Badge, Checkbox, Table } from "react-daisyui"
+import { Avatar, Divider } from "react-daisyui"
 
 type ProfileInfoProps = {
   name: string,
@@ -14,7 +14,7 @@ type TaskProps = {
 
 export function Profile() {
   return (
-    <div className="bg-base-300 p-10 flex flex-col w-96 max-w-sm items-center">
+    <div className="bg-base-200 p-10 flex flex-col w-96 max-w-sm items-center rounded-box">
       <ProfileInfo name="David Cioato" avatar="https://avatars.githubusercontent.com/u/55272383?s=200" title="Software Enginner" />
       <div className="flex flex-col gap-2 mt-12 w-full">
         <h1 className="text-3xl ">Notes</h1>
@@ -23,17 +23,6 @@ export function Profile() {
         
       </div>
     </div>
-  )
-}
-
-
-function Task({ title, checked }: TaskProps) {
-  return (
-    <div className="flex gap-4 items-center">
-      <Checkbox size="xs" color="primary" defaultChecked={checked} />
-      <p className="text-base-">{title}</p>
-    </div>
-
   )
 }
 

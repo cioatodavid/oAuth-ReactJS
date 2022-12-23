@@ -28,7 +28,7 @@ export function Sidebar() {
   }
 
   return (
-    <div className="bg-base-300 pb-2 flex flex-col justify-between">
+    <div className="bg-base-200 pb-2 flex flex-col justify-between">
       <SidebarBody />
       <SidebarFooter changeTheme={handleTheme} currentTheme={(currentTheme[0].toUpperCase() + currentTheme.slice(1)).toString()} />
     </div>
